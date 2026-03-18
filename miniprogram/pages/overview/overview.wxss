@@ -1,0 +1,6 @@
+.placeholder-text {
+  color: #999999;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 48rpx 0;
+}

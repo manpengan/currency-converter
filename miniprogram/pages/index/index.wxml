@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="page-title">汇率换算</view>
+  <view class="page-subtitle">实时汇率，主流货币换算</view>
+
+  <view class="card">
+    <view class="placeholder-text">功能开发中</view>
+  </view>
+</view>
