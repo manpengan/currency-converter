@@ -1,8 +1,76 @@
 <view class="container">
-  <view class="page-title">汇率换算</view>
-  <view class="page-subtitle">实时汇率，主流货币换算</view>
+  <!-- 顶部标题区 -->
+  <view class="hero">
+    <view class="hero-title">💱 汇率换算</view>
+    <view class="hero-desc" wx:if="{{updatedAt}}">{{updatedAt}} 更新</view>
+    <view class="hero-desc" wx:if="{{loading}}">正在获取最新汇率...</view>
+  </view>
 
-  <view class="card">
-    <view class="placeholder-text">功能开发中</view>
+  <!-- 换算主卡片 -->
+  <view class="card converter-card">
+    <!-- 源币种 -->
+    <view class="currency-block from-block">
+      <picker range="{{pickerData}}" value="{{fromIndex}}" bindchange="handleFromChange">
+        <view class="currency-tag">
+          <text class="currency-tag-text">{{pickerData[fromIndex]}}</text>
+          <text class="tag-arrow">▼</text>
+        </view>
+      </picker>
+      <input
+        class="amount-input"
+        type="digit"
+        value="{{amount}}"
+        bindinput="handleAmountInput"
+        placeholder="输入金额"
+        placeholder-class="amount-placeholder"
+      />
+    </view>
+
+    <!-- 互换按钮 -->
+    <view class="swap-wrapper">
+      <view class="swap-line"></view>
+      <view class="swap-btn" bindtap="handleSwap">
+        <text class="swap-icon">⇅</text>
+      </view>
+      <view class="swap-line"></view>
+    </view>
+
+    <!-- 目标币种 -->
+    <view class="currency-block to-block">
+      <picker range="{{pickerData}}" value="{{toIndex}}" bindchange="handleToChange">
+        <view class="currency-tag">
+          <text class="currency-tag-text">{{pickerData[toIndex]}}</text>
+          <text class="tag-arrow">▼</text>
+        </view>
+      </picker>
+      <view class="result-display">{{result || '—'}}</view>
+    </view>
+  </view>
+
+  <!-- 单位汇率卡片 -->
+  <view class="card rate-card" wx:if="{{unitRate}}">
+    <view class="rate-row">
+      <text class="rate-dot from-dot"></text>
+      <text class="rate-text">{{unitRate}}</text>
+    </view>
+    <view class="rate-row">
+      <text class="rate-dot to-dot"></text>
+      <text class="rate-text">{{reverseRate}}</text>
+    </view>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="card error-card" wx:if="{{error}}">
+    <text class="error-icon">⚠</text>
+    <text class="error-text">{{error}}</text>
+  </view>
+
+  <!-- 汇率总览入口 -->
+  <view class="card overview-entry" bindtap="goOverview">
+    <view class="overview-left">
+      <text class="overview-icon">📊</text>
+      <text class="overview-label">查看汇率总览</text>
+    </view>
+    <text class="overview-arrow">›</text>
   </view>
 </view>

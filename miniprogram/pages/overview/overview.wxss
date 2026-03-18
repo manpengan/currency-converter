@@ -1,6 +1,157 @@
-.placeholder-text {
-  color: #999999;
+/* ===== 顶部控制区 ===== */
+.header-card {
+  padding: 36rpx;
+}
+
+.header-top {
+  margin-bottom: 28rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #1E293B;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-top: 2rpx solid #F1F5F9;
+}
+
+.control-label {
   font-size: 28rpx;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.base-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #F8FAFC;
+  border: 2rpx solid #E2E8F0;
+  border-radius: 12rpx;
+  padding: 10rpx 20rpx;
+}
+
+.base-tag-text {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #334155;
+}
+
+.tag-arrow {
+  font-size: 18rpx;
+  color: #94A3B8;
+  margin-left: 10rpx;
+}
+
+.amount-input {
+  flex: 1;
+  text-align: right;
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #1E293B;
+  margin-left: 24rpx;
+}
+
+.amount-placeholder {
+  color: #CBD5E1;
+  font-weight: 400;
+}
+
+.updated-at {
+  font-size: 22rpx;
+  color: #94A3B8;
+  margin-top: 16rpx;
+}
+
+/* ===== 错误 & 加载 ===== */
+.error-card {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 36rpx;
+  background: #FEF2F2;
+}
+
+.error-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.error-text {
+  font-size: 26rpx;
+  color: #DC2626;
+}
+
+.loading-card {
+  padding: 40rpx;
   text-align: center;
-  padding: 48rpx 0;
+  color: #94A3B8;
+  font-size: 26rpx;
+}
+
+/* ===== 汇率列表 ===== */
+.list-card {
+  padding: 8rpx 0;
+}
+
+.rate-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 36rpx;
+  border-bottom: 2rpx solid #F8FAFC;
+  transition: background 0.15s;
+}
+
+.rate-item:last-child {
+  border-bottom: none;
+}
+
+.rate-left {
+  display: flex;
+  align-items: center;
+}
+
+.rate-flag {
+  font-size: 44rpx;
+  margin-right: 20rpx;
+}
+
+.rate-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rate-code {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.rate-name {
+  font-size: 22rpx;
+  color: #94A3B8;
+  margin-top: 4rpx;
+}
+
+.rate-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rate-value {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #1E293B;
+}
+
+.rate-unit {
+  font-size: 22rpx;
+  color: #94A3B8;
+  margin-top: 4rpx;
 }

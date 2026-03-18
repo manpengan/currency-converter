@@ -1,3 +1,5 @@
 {
+  "navigationBarTitleText": "汇率换算",
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

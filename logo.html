@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Logo</title>
+<style>
+  body { margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; background: #eee; }
+  .logo { width: 144px; height: 144px; }
+</style>
+</head>
+<body>
+<svg class="logo" viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="144" height="144" rx="32" fill="url(#bg)"/>
+  <!-- ¥ symbol left -->
+  <text x="32" y="78" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#FFFFFF" text-anchor="middle">¥</text>
+  <!-- exchange arrows -->
+  <path d="M52 56 L92 56" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M85 50 L93 56 L85 62" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M92 88 L52 88" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M59 82 L51 88 L59 94" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- $ symbol right -->
+  <text x="112" y="78" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#FFFFFF" text-anchor="middle">$</text>
+</svg>
+</body>
+</html>

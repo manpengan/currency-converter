@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "汇率总览",
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }
