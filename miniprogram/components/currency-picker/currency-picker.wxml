@@ -1,0 +1,20 @@
+<view class="picker-mask" wx:if="{{show}}" bindtap="handleMaskTap">
+  <view class="picker-sheet" catchtap="preventBubble">
+    <view class="sheet-header">
+      <text class="sheet-title">选择货币</text>
+      <text class="sheet-close" bindtap="handleClose">✕</text>
+    </view>
+    <scroll-view class="sheet-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+      <view
+        class="sheet-item {{index === current ? 'sheet-item-active' : ''}}"
+        wx:for="{{list}}"
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="handleSelect"
+      >
+        <text class="item-text">{{item}}</text>
+        <text class="item-check" wx:if="{{index === current}}">✓</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

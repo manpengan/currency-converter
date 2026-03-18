@@ -6,13 +6,14 @@ const pickerData = getPickerData();
 Page({
   data: {
     pickerData,
-    baseIndex: 0, // CNY
+    baseIndex: 0,
     amount: '100',
     list: [],
     updatedAt: '',
     loading: true,
     error: '',
     rates: null,
+    showPicker: false,
   },
 
   onLoad() {
@@ -30,17 +31,10 @@ Page({
     try {
       const baseCode = CURRENCIES[this.data.baseIndex].code;
       const { rates, updatedAt } = await getRates(baseCode);
-      this.setData({
-        rates,
-        updatedAt,
-        loading: false,
-      });
+      this.setData({ rates, updatedAt, loading: false });
       this.buildList();
     } catch (e) {
-      this.setData({
-        loading: false,
-        error: '汇率获取失败，请检查网络后下拉刷新',
-      });
+      this.setData({ loading: false, error: '汇率获取失败，请下拉刷新重试' });
     }
   },
 
@@ -72,9 +66,17 @@ Page({
     this.setData({ list });
   },
 
-  handleBaseChange(e) {
-    this.setData({ baseIndex: Number(e.detail.value) });
+  openBasePicker() {
+    this.setData({ showPicker: true });
+  },
+
+  handlePickerSelect(e) {
+    this.setData({ baseIndex: e.detail.value, showPicker: false });
     this.loadRates();
+  },
+
+  handlePickerClose() {
+    this.setData({ showPicker: false });
   },
 
   handleAmountInput(e) {

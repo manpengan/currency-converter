@@ -2,8 +2,8 @@ const { CURRENCIES, getPickerData } = require('../../utils/currencies');
 const { getRates, convert, formatAmount, formatRate } = require('../../utils/rate');
 
 const pickerData = getPickerData();
-const DEFAULT_FROM = 0;  // CNY
-const DEFAULT_TO = 1;    // USD
+const DEFAULT_FROM = 0;
+const DEFAULT_TO = 1;
 
 Page({
   data: {
@@ -18,7 +18,9 @@ Page({
     loading: true,
     error: '',
     rates: null,
-    baseCurrency: 'CNY',
+    // picker state
+    showPicker: false,
+    pickerTarget: '',  // 'from' or 'to'
   },
 
   onLoad() {
@@ -35,23 +37,15 @@ Page({
     this.setData({ loading: true, error: '' });
     try {
       const { rates, updatedAt } = await getRates('CNY');
-      this.setData({
-        rates,
-        baseCurrency: 'CNY',
-        updatedAt,
-        loading: false,
-      });
+      this.setData({ rates, baseCurrency: 'CNY', updatedAt, loading: false });
       this.calculate();
     } catch (e) {
-      this.setData({
-        loading: false,
-        error: '汇率获取失败，请检查网络后下拉刷新',
-      });
+      this.setData({ loading: false, error: '汇率获取失败，请下拉刷新重试' });
     }
   },
 
   calculate() {
-    const { rates, fromIndex, toIndex, amount, baseCurrency } = this.data;
+    const { rates, fromIndex, toIndex, amount } = this.data;
     if (!rates) return;
 
     const num = parseFloat(amount);
@@ -74,33 +68,39 @@ Page({
   },
 
   handleAmountInput(e) {
-    const value = e.detail.value;
-    this.setData({ amount: value });
+    this.setData({ amount: e.detail.value });
     this.calculate();
   },
 
-  handleFromChange(e) {
-    this.setData({ fromIndex: Number(e.detail.value) });
+  openFromPicker() {
+    this.setData({ showPicker: true, pickerTarget: 'from' });
+  },
+
+  openToPicker() {
+    this.setData({ showPicker: true, pickerTarget: 'to' });
+  },
+
+  handlePickerSelect(e) {
+    const index = e.detail.value;
+    if (this.data.pickerTarget === 'from') {
+      this.setData({ fromIndex: index, showPicker: false });
+    } else {
+      this.setData({ toIndex: index, showPicker: false });
+    }
     this.calculate();
   },
 
-  handleToChange(e) {
-    this.setData({ toIndex: Number(e.detail.value) });
-    this.calculate();
+  handlePickerClose() {
+    this.setData({ showPicker: false });
   },
 
   handleSwap() {
     const { fromIndex, toIndex } = this.data;
-    this.setData({
-      fromIndex: toIndex,
-      toIndex: fromIndex,
-    });
+    this.setData({ fromIndex: toIndex, toIndex: fromIndex });
     this.calculate();
   },
 
   goOverview() {
-    wx.navigateTo({
-      url: '/pages/overview/overview',
-    });
+    wx.navigateTo({ url: '/pages/overview/overview' });
   },
 });

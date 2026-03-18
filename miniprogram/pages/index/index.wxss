@@ -1,192 +1,225 @@
-/* ===== 顶部标题 ===== */
+/* ===== HERO ===== */
 .hero {
-  padding: 16rpx 8rpx 24rpx;
+  padding: 12rpx 4rpx 28rpx;
+}
+
+.hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .hero-title {
-  font-size: 48rpx;
+  font-size: 50rpx;
   font-weight: 800;
-  color: #1E293B;
-  letter-spacing: 2rpx;
+  color: #F8FAFC;
+  letter-spacing: 3rpx;
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2rpx solid rgba(16, 185, 129, 0.2);
+  border-radius: 40rpx;
+  padding: 8rpx 20rpx;
+}
+
+.badge-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #10B981;
+  margin-right: 10rpx;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.badge-text {
+  font-size: 22rpx;
+  color: #10B981;
+  font-weight: 600;
 }
 
 .hero-desc {
   font-size: 24rpx;
-  color: #94A3B8;
+  color: #475569;
   margin-top: 8rpx;
 }
 
-/* ===== 换算主卡片 ===== */
+/* ===== CONVERTER ===== */
 .converter-card {
-  padding: 40rpx 36rpx;
+  padding: 32rpx;
+  background: linear-gradient(160deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 2rpx solid rgba(148, 163, 184, 0.1);
 }
 
 .currency-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx;
   border-radius: 20rpx;
-  padding: 28rpx;
 }
 
 .from-block {
-  background: #F8FAFC;
-  border: 2rpx solid #E2E8F0;
+  background: rgba(148, 163, 184, 0.04);
+  border: 2rpx solid rgba(148, 163, 184, 0.06);
 }
 
 .to-block {
-  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
-  border: 2rpx solid #C7D2FE;
+  background: rgba(251, 191, 36, 0.03);
+  border: 2rpx solid rgba(251, 191, 36, 0.08);
 }
 
-.currency-tag {
+.block-label {
+  font-size: 22rpx;
+  color: #475569;
+  font-weight: 700;
+  letter-spacing: 6rpx;
+  margin-bottom: 16rpx;
+}
+
+.currency-chip {
   display: inline-flex;
   align-items: center;
-  background: #FFFFFF;
-  border-radius: 12rpx;
-  padding: 10rpx 20rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  background: rgba(148, 163, 184, 0.06);
+  border: 2rpx solid rgba(148, 163, 184, 0.12);
+  border-radius: 14rpx;
+  padding: 14rpx 24rpx;
+  margin-bottom: 24rpx;
 }
 
-.currency-tag-text {
-  font-size: 26rpx;
-  font-weight: 500;
-  color: #334155;
+.chip-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #CBD5E1;
 }
 
-.tag-arrow {
-  font-size: 18rpx;
-  color: #94A3B8;
-  margin-left: 10rpx;
+.chip-arrow {
+  font-size: 28rpx;
+  color: #475569;
+  margin-left: 12rpx;
 }
 
 .amount-input {
   width: 100%;
-  margin-top: 20rpx;
-  font-size: 56rpx;
+  font-size: 64rpx;
   font-weight: 800;
-  color: #1E293B;
-  text-align: right;
+  color: #F1F5F9;
+  text-align: center;
+  letter-spacing: 2rpx;
 }
 
 .amount-placeholder {
-  color: #CBD5E1;
-  font-weight: 400;
+  color: #1E293B;
+  font-weight: 600;
 }
 
-.result-display {
-  margin-top: 20rpx;
-  font-size: 56rpx;
+.result-amount {
+  font-size: 64rpx;
   font-weight: 800;
-  color: #4F46E5;
-  text-align: right;
+  color: #FBBF24;
+  text-align: center;
+  letter-spacing: 2rpx;
+  text-shadow: 0 0 48rpx rgba(251, 191, 36, 0.12);
 }
 
-/* ===== 互换按钮 ===== */
-.swap-wrapper {
+/* ===== SWAP ===== */
+.swap-zone {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 12rpx 0;
+  padding: 16rpx 0;
 }
 
-.swap-line {
+.swap-track {
   flex: 1;
   height: 2rpx;
-  background: #E2E8F0;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.1), transparent);
 }
 
 .swap-btn {
-  width: 80rpx;
-  height: 80rpx;
+  width: 84rpx;
+  height: 84rpx;
   border-radius: 50%;
-  background: #4F46E5;
+  background: linear-gradient(140deg, #3B82F6 0%, #6366F1 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 24rpx;
-  box-shadow: 0 6rpx 20rpx rgba(79, 70, 229, 0.3);
+  box-shadow:
+    0 8rpx 28rpx rgba(99, 102, 241, 0.3),
+    inset 0 2rpx 4rpx rgba(255, 255, 255, 0.1);
 }
 
 .swap-icon {
-  font-size: 36rpx;
+  font-size: 38rpx;
   color: #FFFFFF;
+  font-weight: 700;
 }
 
-/* ===== 单位汇率 ===== */
-.rate-card {
-  padding: 28rpx 36rpx;
-}
-
-.rate-row {
+/* ===== RATE LIST (竖排) ===== */
+.rate-list {
   display: flex;
-  align-items: center;
-  padding: 8rpx 0;
+  flex-direction: column;
+  gap: 12rpx;
+  margin-bottom: 28rpx;
 }
 
-.rate-dot {
-  width: 14rpx;
-  height: 14rpx;
-  border-radius: 50%;
-  margin-right: 16rpx;
-  flex-shrink: 0;
-}
-
-.from-dot {
-  background: #64748B;
-}
-
-.to-dot {
-  background: #4F46E5;
+.rate-item {
+  padding: 24rpx 32rpx;
+  text-align: center;
 }
 
 .rate-text {
   font-size: 26rpx;
   color: #64748B;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 1rpx;
 }
 
-/* ===== 错误提示 ===== */
+/* ===== ERROR ===== */
 .error-card {
-  display: flex;
-  align-items: center;
-  padding: 28rpx 36rpx;
-  background: #FEF2F2;
-}
-
-.error-icon {
-  font-size: 32rpx;
-  margin-right: 16rpx;
+  padding: 28rpx 32rpx;
+  background: rgba(239, 68, 68, 0.08);
+  border: 2rpx solid rgba(239, 68, 68, 0.15);
+  text-align: center;
 }
 
 .error-text {
   font-size: 26rpx;
-  color: #DC2626;
+  color: #FCA5A5;
 }
 
-/* ===== 汇率总览入口 ===== */
-.overview-entry {
+/* ===== OVERVIEW ENTRY ===== */
+.overview-btn {
+  margin-top: 8rpx;
+  margin-bottom: 48rpx;
+}
+
+.overview-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 36rpx;
-}
-
-.overview-left {
-  display: flex;
-  align-items: center;
-}
-
-.overview-icon {
-  font-size: 36rpx;
-  margin-right: 16rpx;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 34rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.06) 100%);
+  border: 2rpx solid rgba(99, 102, 241, 0.15);
 }
 
 .overview-label {
   font-size: 30rpx;
-  font-weight: 500;
-  color: #334155;
+  font-weight: 600;
+  color: #93C5FD;
+  letter-spacing: 2rpx;
 }
 
 .overview-arrow {
-  font-size: 40rpx;
-  color: #CBD5E1;
-  font-weight: 300;
+  font-size: 30rpx;
+  color: #93C5FD;
 }

@@ -4,10 +4,10 @@
     "pages/overview/overview"
   ],
   "window": {
-    "navigationBarTitleText": "汇率换算",
-    "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#F5F5F5",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#0B1120",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0B1120",
     "backgroundTextStyle": "dark"
   },
   "style": "v2",

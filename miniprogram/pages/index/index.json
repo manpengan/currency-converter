@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "汇率换算",
+  "navigationBarTitleText": "",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "currency-picker": "/components/currency-picker/currency-picker"
+  }
 }
